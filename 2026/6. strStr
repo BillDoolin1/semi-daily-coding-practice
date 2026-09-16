@@ -1,0 +1,23 @@
+class Solution(object):
+    def strStr(self, haystack, needle):
+        """
+        :type haystack: str
+        :type needle: str
+        :rtype: int
+        """
+        if needle not in haystack:
+            return -1   
+        current_word = ""    
+        for i in range(len(haystack)+1):
+            if needle in current_word:
+                aaanswer = i-len(needle)
+                return aaanswer
+            current_word = current_word + haystack[i]
+        """
+        def strStr(self, haystack: str, needle: str) -> int:
+        m, n = len(haystack), len(needle)
+        for i in range(m - n + 1):
+            if haystack[i:i + n] == needle:
+                return i
+        return -1  
+        """
