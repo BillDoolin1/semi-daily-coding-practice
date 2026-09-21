@@ -1,0 +1,73 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: Optional[ListNode]
+        :type l2: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        result=l1
+        carryover=0
+        prev=None
+
+        while l1 or l2 or carryover:
+            v1 = l1.val if l1 else 0
+            v2 = l2.val if l2 else 0
+
+            total=v1+v2+carryover
+            carryover=total//10
+            digit=total%10
+
+            if l1:
+                l1.val = digit
+                prev = l1
+                l1 = l1.next
+            else:
+                new_node = ListNode(digit)
+                prev.next = new_node
+                prev = new_node
+            
+            if l2:
+                l2 = l2.next
+
+        return result# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: Optional[ListNode]
+        :type l2: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        result=l1
+        carryover=0
+        prev=None
+
+        while l1 or l2 or carryover:
+            v1 = l1.val if l1 else 0
+            v2 = l2.val if l2 else 0
+
+            total=v1+v2+carryover
+            carryover=total//10
+            digit=total%10
+
+            if l1:
+                l1.val = digit
+                prev = l1
+                l1 = l1.next
+            else:
+                new_node = ListNode(digit)
+                prev.next = new_node
+                prev = new_node
+            
+            if l2:
+                l2 = l2.next
+
+        return result
