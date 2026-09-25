@@ -1,0 +1,23 @@
+class Solution(object):
+    def differenceOfSums(self, n, m):
+        """
+        :type n: int
+        :type m: int
+        :rtype: int
+        """
+        div=0
+        nondiv=0
+        for i in range(n+1):
+            if i%m==0:
+                nondiv += i
+            else:
+                div += i
+        return (div-nondiv)
+
+        '''
+        class Solution(object):
+            def differenceOfSums(self, n, m):
+                totalSum = n * (n + 1) // 2
+                divisibleSum = m * (n // m) * (n // m + 1)
+                return totalSum - divisibleSum
+        '''
