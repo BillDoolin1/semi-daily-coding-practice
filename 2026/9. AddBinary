@@ -1,0 +1,49 @@
+class Solution(object):
+    def addBinary(self, a, b):
+        """
+        :type a: str
+        :type b: str
+        :rtype: str
+        """
+        c = int(a) + int(b)
+        stringC=str(c)
+        overlap=0
+        finalString=""
+        remaining=0  
+        for i in range(len(stringC)-1,-1,-1):
+            print(i,finalString)
+            realNumber=int(stringC[i])+overlap
+            if realNumber==2:
+                overlap=1
+                remaining=0  
+            elif realNumber==3:
+                overlap=1
+                remaining=1
+            else:
+                remaining=realNumber
+                overlap=0
+            finalString= str(remaining) + finalString
+        if overlap==1:
+            finalString = "1" + finalString
+        return finalString
+        
+        '''
+        class Solution:
+  def addBinary(self, a: str, b: str) -> str:
+    s = []
+    carry = 0
+    i = len(a) - 1
+    j = len(b) - 1
+
+    while i >= 0 or j >= 0 or carry:
+      if i >= 0:
+        carry += int(a[i])
+        i -= 1
+      if j >= 0:
+        carry += int(b[j])
+        j -= 1
+      s.append(str(carry % 2))
+      carry //= 2
+
+    return ''.join(reversed(s))'''
+            
