@@ -1,0 +1,28 @@
+class Solution(object):
+    def plusOne(self, digits):
+        """
+        :type digits: List[int]
+        :rtype: List[int]
+        """
+        past_overlap=0
+        current_overlap=0
+        digits[len(digits)-1]=digits[len(digits)-1]+1
+        for i in range(len(digits)-1,-1,-1):
+            current_overlap=(digits[i]+past_overlap)/10
+            digits[i]=(digits[i]+past_overlap)%10
+            past_overlap=current_overlap
+        if past_overlap==1:
+            print("a")
+            digits.insert(0,1)
+        return digits
+        '''
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        for i in reversed(range(len(digits))):
+            if digits[i] != 9:
+                digits[i] += 1
+                return digits
+            digits[i] = 0
+        
+        return [1] + digits
+        '''
