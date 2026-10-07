@@ -1,0 +1,29 @@
+
+class Solution(object):
+
+    def convert(self, s, numRows):
+        if numRows == 1 or numRows >= len(s):
+            return s
+
+        results = [[] for _ in range(numRows)]
+
+        row = 0
+        direction = 1
+
+        for char in s:
+            results[row].append(char)
+
+            if row == 0:
+                direction = 1
+            elif row == numRows - 1:
+                direction = -1
+
+            row += direction
+
+        answer = ""
+
+        for row in results:
+            answer += "".join(row)
+
+        return answer
+
