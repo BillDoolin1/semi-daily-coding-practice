@@ -1,0 +1,24 @@
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        for i in range(len(s)):
+            if s[i] not in s[i+1:] and s[i] not in s[:i]:
+                return i
+        return -
+        '''
+        class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        freq = {}
+
+        for c in s:
+            freq[c] = 1 + freq.get(c, 0)
+        
+        for i, c in enumerate(s):
+            if freq[c] == 1:
+                return i
+        
+        return -1
+        '''
