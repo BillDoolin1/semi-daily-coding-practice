@@ -1,0 +1,16 @@
+class Solution(object):
+    def thirdMax(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if len(set(nums))<=2:
+            return(max(nums))
+        iterable_remove=2
+        while iterable_remove!=0:
+            maxCurr=max(nums)
+            nums.remove(maxCurr)
+            if maxCurr not in nums:
+                iterable_remove -=1
+        return(max(nums))
+        
